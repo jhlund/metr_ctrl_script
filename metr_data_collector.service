@@ -3,11 +3,12 @@
 [Unit]
 Description=metr data collector update and run service
 
-Wants=network.target
+Wants=network.target network-online.target
 After=syslog.target network-online.target
 
 [Service]
 Type=simple
+# metr_crtl_script.sh takes 4 inputs paths, updater config, data collector config, output file, and the venv where the programs are installed
 ExecStart=/usr/local/bin/metr_ctrl_script.sh /home/pi/metr/metr_ctrl_script/metr_config_updater.config /home/pi/metr/metr_ctrl_script/metr_data_collector.config /home/pi/metr/metr_ctrl_script/output.txt /home/pi/metr/venv/bin/activate
 Restart=on-failure
 RestartSec=10
