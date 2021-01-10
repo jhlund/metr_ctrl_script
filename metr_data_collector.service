@@ -1,0 +1,17 @@
+# https://www.howtogeek.com/687970/how-to-run-a-linux-program-at-startup-with-systemd/
+
+[Unit]
+Description=metr data collector update and run service
+
+Wants=network.target
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/metr_ctrl_script.sh
+Restart=on-failure
+RestartSec=10
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
