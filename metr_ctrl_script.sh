@@ -4,7 +4,8 @@
 
 UPDATER_CONFIG=$1
 DATA_COLLECTOR_CONFIG=$2
-VENV=$3
+OUTPUT_PATH=$3
+VENV=$4
 
 # activate virtual environment
 source $VENV
@@ -12,7 +13,7 @@ source $VENV
 
 if metr_config_update update-config -C $UPDATER_CONFIG; then
     echo success
-    metr_data_collector collect-data -C $DATA_COLLECTOR_CONFIG
+    metr_data_collector collect-data -C $DATA_COLLECTOR_CONFIG -O $OUTPUT_PATH
 else
     echo failed
 fi

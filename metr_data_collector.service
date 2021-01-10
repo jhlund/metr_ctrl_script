@@ -8,7 +8,7 @@ After=syslog.target network-online.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/metr_ctrl_script.sh /home/pi/metr/metr_ctrl_script/metr_config_updater.config /home/pi/metr/metr_ctrl_script/metr_data_collector.config /home/pi/metr/venv/bin/activate
+ExecStart=/usr/local/bin/metr_ctrl_script.sh /home/pi/metr/metr_ctrl_script/metr_config_updater.config /home/pi/metr/metr_ctrl_script/metr_data_collector.config /home/pi/metr/metr_ctrl_script/output.txt /home/pi/metr/venv/bin/activate
 Restart=on-failure
 RestartSec=10
 KillMode=mixed
